@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soulution Print OS</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="loginScreen" class="login-screen">
+    <div class="login-scene" aria-hidden="true">
+      <span class="scene-orb orb-one"></span>
+      <span class="scene-orb orb-two"></span>
+      <span class="scene-orb orb-three"></span>
+      <span class="scene-grid"></span>
+    </div>
+    <div class="login-shell">
+      <article class="login-card login-brand-card">
+        <div class="brand-block">
+          <div class="brand-mark">S</div>
+          <div>
+            <p class="eyebrow">Printing Business Suite</p>
+            <h1>Soulution Print OS</h1>
+          </div>
+        </div>
+        <h2 class="login-title">Manage your print business with one secure control panel.</h2>
+        <p class="hero-copy">Log in to manage clients, products, vendors, accounts, quotations, and billing from a glassmorphic dashboard built for daily printing operations.</p>
+        <div class="login-ribbon-row">
+          <span class="login-ribbon">Live Workflow</span>
+          <span class="login-ribbon">Blue Glass UI</span>
+          <span class="login-ribbon">Reports & Billing</span>
+        </div>
+        <div class="cards-grid">
+          <article class="metric-card">
+            <p class="eyebrow">Included</p>
+            <strong>10 Core Segments</strong>
+          </article>
+          <article class="metric-card">
+            <p class="eyebrow">Access</p>
+            <strong>Owner Login</strong>
+          </article>
+        </div>
+      </article>
+
+      <article class="login-card">
+        <p class="eyebrow">Secure Login</p>
+        <h2>Welcome back</h2>
+        <p class="muted">Use your business admin credentials to enter the dashboard.</p>
+        <form id="loginForm" class="login-form">
+          <div class="field">
+            <label for="loginId">Login ID</label>
+            <input id="loginId" name="loginId" type="text" autocomplete="username" required>
+          </div>
+          <div class="field">
+            <label for="loginPassword">Password</label>
+            <input id="loginPassword" name="loginPassword" type="password" autocomplete="current-password" required>
+          </div>
+          <p id="loginError" class="error-text" hidden>Invalid login ID or password.</p>
+          <button type="submit" class="primary-btn">Enter Dashboard</button>
+        </form>
+      </article>
+    </div>
+  </section>
+
+  <div id="appShell" class="app-shell" hidden>
+    <main class="main-panel">
+      <header class="topbar">
+        <div class="topbar-main">
+          <div>
+            <p class="eyebrow">Operations Dashboard</p>
+            <h2 id="pageTitle">Dashboard</h2>
+          </div>
+          <div class="topbar-actions">
+            <button id="openModalBtn" class="primary-btn">Add New</button>
+            <button id="logoutBtn" class="ghost-btn" type="button">Logout</button>
+          </div>
+        </div>
+        <div id="tabBar" class="tab-bar" aria-label="Dashboard tabs">
+          <button class="tab-item active" data-view="dashboard" type="button">Dashboard</button>
+          <button class="tab-item" data-view="clients" type="button">Clients</button>
+          <button class="tab-item" data-view="products" type="button">Products</button>
+          <button class="tab-item" data-view="vendors" type="button">Vendors</button>
+          <button class="tab-item" data-view="accounts" type="button">Accounts</button>
+          <button class="tab-item" data-view="quotations" type="button">Quotations</button>
+          <button class="tab-item" data-view="digitalCreatives" type="button">Digital Creatives</button>
+          <button class="tab-item" data-view="jobsDashboard" type="button">Jobs Dashboard</button>
+          <button class="tab-item" data-view="jobSheets" type="button">Job Sheets</button>
+          <button class="tab-item" data-view="billing" type="button">Billing</button>
+          <button class="tab-item" data-view="delivery" type="button">Delivery</button>
+          <button class="tab-item" data-view="payroll" type="button">Payroll</button>
+          <button class="tab-item" data-view="users" type="button">Users</button>
+          <button class="tab-item" data-view="dataManagement" type="button">Data Management</button>
+        </div>
+      </header>
+
+      <section class="hero-card">
+        <div>
+          <p class="eyebrow">Designed for fast print workflows</p>
+          <h3>Run your clients, inventory, quotations, billing, and cashflow from one place.</h3>
+          <p class="hero-copy">Track every job from inquiry to invoice with a dashboard tailored to printing operations like flex, offset, digital, packaging, and branding orders.</p>
+        </div>
+        <div id="heroStats" class="hero-stats"></div>
+      </section>
+
+      <section class="content-grid">
+        <div class="panel panel-wide">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Workspace</p>
+              <h3 id="sectionTitle">Business Overview</h3>
+            </div>
+            <div id="workspaceActions" class="button-row"></div>
+          </div>
+          <div id="viewRoot"></div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-head">
+            <div>
+              <p class="eyebrow">Alerts</p>
+              <h3>Action Queue</h3>
+            </div>
+          </div>
+          <div id="sidebarSnapshot" class="metric-stack"></div>
+          <div id="alertsList" class="stack-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="entryModal" class="entry-modal">
+    <form method="dialog" class="modal-card" id="entryForm">
+      <div class="modal-head">
+        <div>
+          <p class="eyebrow">Quick Entry</p>
+          <h3 id="modalTitle">Add Record</h3>
+        </div>
+        <button type="button" id="closeModalBtn" class="ghost-btn" aria-label="Close">Close</button>
+      </div>
+      <div id="formFields" class="form-grid"></div>
+      <div class="modal-actions">
+        <button type="button" id="cancelModalBtn" class="ghost-btn">Cancel</button>
+        <button type="submit" class="primary-btn" id="saveEntryBtn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <template id="tableTemplate">
+    <div class="data-table-wrap">
+      <table class="data-table">
+        <thead></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

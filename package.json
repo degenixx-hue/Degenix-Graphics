@@ -1,0 +1,13 @@
+{
+  "name": "soulution-print-os",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Deployable printing business management app with a Node backend.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
